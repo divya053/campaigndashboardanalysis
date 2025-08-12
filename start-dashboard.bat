@@ -1,0 +1,16 @@
+@echo off
+echo Starting Dashboard...
+
+echo Starting API Server...
+start "API Server" cmd /k "node apis.js"
+
+echo Waiting for API server to start...
+timeout /t 3 /nobreak > nul
+
+echo Starting React App...
+start "React App" cmd /k "cd camdash && npm start"
+
+echo Dashboard is starting...
+echo API Server: http://localhost:5000
+echo React App: http://localhost:3000
+pause
